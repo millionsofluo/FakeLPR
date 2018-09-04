@@ -166,6 +166,7 @@ class MultiLabelLMDB(object):
         print 'write label done'
         
 
+    # 参考 https://blog.csdn.net/u013010889/article/details/53098346
     def totwolmdb(self,path,pause):
         ####################pre-treatment############################
         #txt with labels eg. (0001.jpg 2 5)
