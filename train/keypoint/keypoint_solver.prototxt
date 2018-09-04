@@ -1,0 +1,20 @@
+net: "keypoint/keypoint_net.prototxt"
+
+test_iter: 200
+
+test_interval: 1000
+
+base_lr: 0.001
+momentum: 0.9
+weight_decay: 0.001
+
+lr_policy: "inv"
+gamma: 0.0001
+power: 0.75
+
+display: 500
+max_iter: 100000
+
+snapshot: 100000
+snapshot_prefix: "keypoint_snapshot/keypoint"
+solver_mode: GPU
