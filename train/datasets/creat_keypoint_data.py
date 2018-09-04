@@ -399,6 +399,7 @@ class NoramlPlate(Tool):
         return com
 # class NoramlPlate END  
 
+# 参考: https://github.com/LCorleone/hyperlpr-train_e2e/blob/master/PlateCommon.py
 class ExtendPlate(Tool):
     """docstring for Extendplate"""
     def __init__(self):
