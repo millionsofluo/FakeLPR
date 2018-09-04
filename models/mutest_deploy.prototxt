@@ -1,0 +1,321 @@
+name: "mutest"  
+  
+input: "data"    
+input_dim: 1   # batchsize    
+input_dim: 3   # number of channels - rgb    
+input_dim: 35  # height  
+input_dim: 110 # width   
+
+layer {  
+  name: "conv1"  
+  type: "Convolution"  
+  bottom: "data"  
+  top: "conv1"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  convolution_param {  
+    num_output: 20  
+    kernel_size: 5  
+    stride: 1  
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+}  
+layer {  
+  name: "pool1"  
+  type: "Pooling"  
+  bottom: "conv1"  
+  top: "pool1"  
+  pooling_param {  
+    pool: MAX  
+    kernel_size: 2  
+    stride: 2  
+  }  
+}  
+layer {  
+  name: "conv2"  
+  type: "Convolution"  
+  bottom: "pool1"  
+  top: "conv2"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  convolution_param {  
+    num_output: 50  
+    kernel_size: 5  
+    stride: 1  
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+}  
+layer {  
+  name: "pool2"  
+  type: "Pooling"  
+  bottom: "conv2"  
+  top: "pool2"  
+  pooling_param {  
+    pool: MAX  
+    kernel_size: 2  
+    stride: 2  
+  }  
+}  
+layer {  
+  name: "ip1"  
+  type: "InnerProduct"  
+  bottom: "pool2"  
+  top: "ip1"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  inner_product_param {  
+    num_output: 500  
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+}  
+layer {  
+  name: "relu1"  
+  type: "ReLU"  
+  bottom: "ip1"  
+  top: "ip1"  
+}  
+  
+layer {  
+  name: "ip2"  
+  type: "InnerProduct"  
+  bottom: "ip1"  
+  top: "ip2"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  inner_product_param {  
+    num_output: 100  
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+}  
+
+# multi label
+layer {  
+  name: "ip3_1"  
+  type: "InnerProduct"  
+  bottom: "ip2"  
+  top: "ip3_1"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  inner_product_param {  
+    num_output: 31  # how many zhong lei
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+}  
+  
+layer {  
+  name: "ip3_2"  
+  type: "InnerProduct"  
+  bottom: "ip2"  
+  top: "ip3_2"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  inner_product_param {  
+    num_output: 24  
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+}  
+  
+layer {  
+  name: "ip3_3"  
+  type: "InnerProduct"  
+  bottom: "ip2"  
+  top: "ip3_3"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  inner_product_param {  
+    num_output: 34  
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+}  
+  
+layer {  
+  name: "ip3_4"  
+  type: "InnerProduct"  
+  bottom: "ip2"  
+  top: "ip3_4"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  inner_product_param {  
+    num_output: 34  
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+}  
+layer {  
+  name: "ip3_5"  
+  type: "InnerProduct"  
+  bottom: "ip2"  
+  top: "ip3_5"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  inner_product_param {  
+    num_output: 34  
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+}
+layer {  
+  name: "ip3_6"  
+  type: "InnerProduct"  
+  bottom: "ip2"  
+  top: "ip3_6"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  inner_product_param {  
+    num_output: 34  
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+}  
+layer {  
+  name: "ip3_7"  
+  type: "InnerProduct"  
+  bottom: "ip2"  
+  top: "ip3_7"  
+  param {  
+    lr_mult: 1  
+  }  
+  param {  
+    lr_mult: 2  
+  }  
+  inner_product_param {  
+    num_output: 34  
+    weight_filler {  
+      type: "xavier"  
+    }  
+    bias_filler {  
+      type: "constant"  
+    }  
+  }  
+} 
+
+# prob
+layer {  
+  name: "prob_1"  
+  type: "Softmax"  
+  bottom: "ip3_1"  
+  top: "prob_1"  
+}  
+layer {  
+  name: "prob_2"  
+  type: "Softmax"  
+  bottom: "ip3_2"  
+  top: "prob_2"  
+}  
+layer {  
+  name: "prob_3"  
+  type: "Softmax"  
+  bottom: "ip3_3"  
+  top: "prob_3"  
+}  
+layer {  
+  name: "prob_4"  
+  type: "Softmax"  
+  bottom: "ip3_4"  
+  top: "prob_4"  
+}
+layer {  
+  name: "prob_5"  
+  type: "Softmax"  
+  bottom: "ip3_5"  
+  top: "prob_5"  
+}
+layer {  
+  name: "prob_6"  
+  type: "Softmax"  
+  bottom: "ip3_6"  
+  top: "prob_6"  
+}
+layer {  
+  name: "prob_7"  
+  type: "Softmax"  
+  bottom: "ip3_7"  
+  top: "prob_7"  
+}
