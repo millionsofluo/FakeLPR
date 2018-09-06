@@ -12,14 +12,14 @@
 [FakeLPR车牌识别(3) ----- 车牌端到端识别](https://blog.csdn.net/luoyanjunhehehe/article/details/82349990)
 
 ### 调用
-需要 opencv3.4
+需要 **opencv3.4**
 ```
 cd FakeLPR
 python py_demo.py
 ```
 
 ### 训练
-需要 caffe
+需要 **caffe**
 
 生成数据
 ```
