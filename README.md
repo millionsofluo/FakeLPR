@@ -14,7 +14,7 @@ python py_demo.py
 需要 **caffe**
 
 生成数据
-```
+```shell
 cd FakeLPR/train/datasets
 # 1.生成keypoint数据
 python creat_keypoint_data.py
@@ -26,7 +26,7 @@ python creat_e2e_data.py
 python creat_e2e_lmdb.py
 ```
 caffe训练模型
-```
+```shell
 # 返回 FakeLPR/train
 cd ..
 # 5.训练keypoint模型
