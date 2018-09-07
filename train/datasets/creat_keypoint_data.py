@@ -213,6 +213,7 @@ class NoramlPlate(Tool):
     """docstring for NoramlPlate"""
     def __init__(self):
         super(NoramlPlate, self).__init__()
+        # 字体我根据兰亭雅黑改过，主要改的是英文和数字，比较像
         self.font_path = "Font/plate_lantinghei_0_change2.ttf"
         
 
